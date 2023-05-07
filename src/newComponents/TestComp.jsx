@@ -9,9 +9,11 @@ export default function App() {
 
   const handleEncryptionClick = () => {
     setIsEncryptionActive(true);
+    setIsDecryptionActive(false);
   };
 
   const handleDecryptionClick = () => {
+    setIsEncryptionActive(false);
     setIsDecryptionActive(true);
   };
 
@@ -21,7 +23,7 @@ export default function App() {
   };
 
   return (
-    <Box>
+    <Box m={5}>
       <Typography variant="h2" align="center">
         AES
       </Typography>
@@ -37,8 +39,9 @@ export default function App() {
           variant="contained"
           onClick={handleEncryptionClick}
           sx={{
+            bgcolor: "#5C469C",
             ...(isEncryptionActive && {
-              bgcolor: "green",
+              bgcolor: "#1D267D",
               color: "primary.contrastText",
             }),
           }}
@@ -49,8 +52,9 @@ export default function App() {
           variant="contained"
           onClick={handleDecryptionClick}
           sx={{
+            bgcolor: "#5C469C",
             ...(isDecryptionActive && {
-              bgcolor: "green",
+              bgcolor: "#1D267D",
               color: "primary.contrastText",
             }),
           }}
@@ -58,7 +62,10 @@ export default function App() {
           Decryption
         </Button>
       </Stack>
-      <Box>{isEncryptionActive ? <Encryption /> : <Decryption />}</Box>
+      <Box>
+        {isEncryptionActive ? <Encryption /> : null}
+        {isDecryptionActive ? <Decryption /> : null}
+      </Box>
 
       <Stack my={3} alignItems="center">
         <Button variant="text" onClick={handleCloseClick}>
