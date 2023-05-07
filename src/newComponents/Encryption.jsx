@@ -59,20 +59,25 @@ export default function Encryption() {
         <Button
           sx={{
             m: "auto",
-            width: "50%",
+            width: "70%",
+            borderRadius: "20px",
+            fontSize: "1.2rem",
           }}
           variant="contained"
           onClick={handleEncryptClick}
         >
           Encrypt
         </Button>
-        <Typography variant="h5">Encrypted text:</Typography>
+        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+          Encrypted Text:
+        </Typography>
         <Stack direction="row" alignItems="center">
           <TextField
             label="Ciphertext"
             value={ciphertext}
             variant="outlined"
             margin="normal"
+            sx={{ fontSize: "1.2rem", flexGrow: 1 }}
           />
           {ciphertext && (
             <IconButton aria-label="copy" onClick={handleCopyClick}>
@@ -82,8 +87,12 @@ export default function Encryption() {
         </Stack>
       </Stack>
 
-      <Stack my={3} alignItems="center">
-        <Button variant="outlined" onClick={handleClearClick}>
+      <Stack my={3} alignItems="center" sx={{ width: "100%" }}>
+        <Button
+          variant="outlined"
+          onClick={handleClearClick}
+          sx={{ width: "70%" }}
+        >
           Clear
         </Button>
       </Stack>

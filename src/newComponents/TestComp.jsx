@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Stack, Button, Typography } from "@mui/material";
+import { Box, Stack, Button, Typography, Divider } from "@mui/material";
 import Encryption from "./Encryption";
 import Decryption from "./Decryption";
 
@@ -23,10 +23,11 @@ export default function App() {
   };
 
   return (
-    <Box m={5}>
-      <Typography variant="h2" align="center">
+    <Box m={5} pt={3}>
+      <Typography variant="h2" align="center" fontSize="3rem">
         AES
       </Typography>
+      <Divider sx={{ my: 2 }} />
       <Stack
         direction="row"
         alignItems="center"
@@ -69,7 +70,7 @@ export default function App() {
 
       <Stack my={3} alignItems="center">
         <Button variant="text" onClick={handleCloseClick}>
-          Close
+          Back
         </Button>
       </Stack>
     </Box>

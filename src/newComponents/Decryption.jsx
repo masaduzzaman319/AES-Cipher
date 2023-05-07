@@ -60,29 +60,41 @@ export default function Decryption() {
           sx={{
             m: "auto",
             width: "50%",
+            borderRadius: "20px",
+            fontSize: "1.2rem",
           }}
           variant="contained"
           onClick={handleDecryptClick}
         >
           Decrypt
         </Button>
-        <Typography variant="h5">Decrypted text:</Typography>
-        <Stack direction="row" alignItems="center">
-          <TextField
-            label="Plaintext"
-            value={decryptedtext}
-            variant="outlined"
-            margin="normal"
-          />
-          {decryptedtext && (
-            <IconButton aria-label="copy" onClick={handleCopyClick}>
-              <CopyIcon />
-            </IconButton>
-          )}
+
+        <Stack>
+          <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+            Decrypted text:
+          </Typography>
+          <Stack direction="row" alignItems="center">
+            <TextField
+              label="Plaintext"
+              value={decryptedtext}
+              variant="outlined"
+              margin="normal"
+              sx={{ fontSize: "1.2rem", flexGrow: 1 }}
+            />
+            {decryptedtext && (
+              <IconButton aria-label="copy" onClick={handleCopyClick}>
+                <CopyIcon />
+              </IconButton>
+            )}
+          </Stack>
         </Stack>
       </Stack>
-      <Stack my={3} alignItems="center">
-        <Button variant="outlined" onClick={handleClearClick}>
+      <Stack my={3} alignItems="center" sx={{ width: "100%" }}>
+        <Button
+          variant="outlined"
+          onClick={handleClearClick}
+          sx={{ width: "70%" }}
+        >
           Clear
         </Button>
       </Stack>
